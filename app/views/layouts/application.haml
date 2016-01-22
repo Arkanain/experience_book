@@ -4,7 +4,7 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
 
     %title
-      Self Publisher
+      Experience book
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false
     = javascript_include_tag 'application', 'data-turbolinks-track' => false
@@ -15,8 +15,9 @@
       .container
         = render 'layouts/header'
     #content
-      #main_menu
-        = render 'layouts/main_menu'
+      - if current_user
+        #main_menu
+          = render 'layouts/main_menu'
       #container
         %div{id: "#{controller_name}"}
           = yield

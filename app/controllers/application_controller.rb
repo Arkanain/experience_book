@@ -4,20 +4,12 @@ class ApplicationController < ActionController::Base
 
   # For ActionController::Base
   protect_from_forgery with: :exception
-  before_action :check_user
+  before_action :get_articles
   before_action :authenticate_user!
 
   private
 
-  def check_user
-    if cookies[:auth_token]
-      unless current_user
-        user = User.where(authentication_token: cookies[:auth_token]).first
-
-        sign_in(:user, user)
-      end
-    else
-      sign_out(:user)
-    end
+  def get_articles
+    @articles = Article.all.select(:id, :title)
   end
 end

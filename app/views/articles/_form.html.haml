@@ -3,7 +3,6 @@
     .error
       = error
 
-
 = form_for @article do |f|
   .form_field
     = f.label :title
@@ -18,4 +17,3 @@
 
   .form_field
     = f.submit class: 'button success'
-    = link_to 'Back', articles_path, class: 'button form_back alert'

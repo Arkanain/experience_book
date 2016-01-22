@@ -4,16 +4,14 @@ gem 'rails', '4.1.0'
 
 # Debug
 gem 'pry'
+gem 'debase'
+gem 'ruby-debug-ide'
 
 # DB
 gem 'pg'
 
 # Auth
 gem 'devise'
-gem 'devise-token_authenticatable'
-
-# User Roles
-gem 'cancancan', '~> 1.10'
 
 # attr_accessible
 gem 'protected_attributes'
@@ -29,11 +27,6 @@ gem 'haml'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-
-# API
-gem 'grape'
-gem 'grape-active_model_serializers'
-gem 'grape-entity'
 
 gem 'quiet_assets', group: :development
 

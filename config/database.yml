@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: catawiki_development
+  database: know_development
 
 test:
   <<: *default
-  database: catawiki_test
+  database: know_test
 
 production:
   <<: *default
-  database: catawiki_production
+  database: know_production

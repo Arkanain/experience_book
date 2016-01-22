@@ -1,12 +1,16 @@
-class ArticlesController < ApplicationController
+class ArticlesController < BaseController
   skip_before_filter :authenticate_user!
-  load_resource
 
   def index
-    @articles = Article.all
+  end
+
+  def new
+    @article = Article.new
   end
 
   def create
+    @article = Article.new(params[:article])
+
     if @article.save
       redirect_to articles_path
     else
@@ -14,7 +18,16 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+    @article = Article.find(params[:id])
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
   def update
+    @article = Article.find(params[:id])
     @article.update_attributes(params[:article])
 
     if @article.valid?
@@ -25,11 +38,13 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    @article = Article.find(params[:id])
+
     respond_to do |format|
       format.js do
         @article.destroy
 
-        @articles = Article.all
+        @articles = Article.all.select(:id, :title)
 
         render layout: false
       end

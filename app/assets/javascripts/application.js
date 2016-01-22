@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require tinymce
 //= require users
-//= require dashboard
 //= require_tree .
 
 $(function(){

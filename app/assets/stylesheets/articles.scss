@@ -1,6 +1,5 @@
 #articles {
   padding-top: 20px;
-  width: 70%;
 
   form {
     width: 700px;
@@ -8,41 +7,62 @@
 
   .article_container {
     width: 100%;
-    background-color: #ebebeb;
-    padding: 20px 0 25px 35px;
 
     .article_title {
       font-weight: bold;
+      width: 90%;
+      float: left;
     }
 
-    .article_text {
-      display: inline-block;
-      width: 83%;
-      vertical-align: top;
+    .edit_button {
+      width: 10%;
+      float: left;
+      margin: 3px 0 8px;
+
+      .button {
+        background-color: white;
+        border: 3px solid #f5f5f5;
+        padding: 5px 14px;
+        margin: 0;
+      }
+
+      .fa, span.button_text {
+        color: #858585;
+      }
     }
 
-    .buttons {
-      display: inline-block;
-      width: 15%;
-      vertical-align: top;
+    .article_content {
+      padding-left: 20px;
 
-      .action {
-        margin-bottom: 5px;
-        text-align: center;
+      .article_text {
+        display: inline-block;
+        width: 83%;
+        vertical-align: top;
+      }
 
-        &:last-child {
-          margin-bottom: 0;
-        }
+      .buttons {
+        display: inline-block;
+        width: 15%;
+        vertical-align: top;
 
-        a {
-          margin: 0;
-          font-size: 12px;
-          width: 75px;
-          padding: 5px 10px;
+        .action {
+          margin-bottom: 5px;
+          text-align: center;
 
-          i, .button_text {
-            vertical-align: middle;
-            height: 13px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          a {
+            margin: 0;
+            font-size: 12px;
+            width: 75px;
+            padding: 5px 10px;
+
+            i, .button_text {
+              vertical-align: middle;
+              height: 13px;
+            }
           }
         }
       }

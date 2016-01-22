@@ -1,8 +1,8 @@
 .article_container
-  .article_title
+  %h3.article_title
     = @article.title
+  .edit_button
+    = link_to action_button('Edit', 'fa-pencil-square-o'), edit_article_path(@article), class: 'button warning'
   .article_content
     .article_text
       = @article.text.html_safe
-
-= link_to 'Back', articles_path, class: 'button form_back alert'
