@@ -69,6 +69,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.8.3)
+    multi_json (1.11.2)
     orm_adapter (0.5.0)
     pg (0.18.4)
     polyglot (0.3.5)
@@ -146,6 +147,7 @@ DEPENDENCIES
   foundation-rails (~> 5.5.0)
   haml
   jquery-rails
+  multi_json
   pg
   protected_attributes
   pry
