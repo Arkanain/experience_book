@@ -8,4 +8,5 @@
 
     = link_to action_button('Sign out', 'fa-sign-out'), destroy_user_session_path, method: :delete
   - else
-    = link_to action_button('Sign in', 'fa-sign-in'), new_user_session_path
+    = link_to action_button('Sign in', 'fa-sign-in'), new_user_session_path, class: 'sign_in'
+    = link_to action_button('Sign up', 'fa-user-plus'), new_user_registration_path, class: 'sign_up'

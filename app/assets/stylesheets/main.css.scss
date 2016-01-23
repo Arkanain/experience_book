@@ -27,6 +27,18 @@ p {
 
     .sign_out {
       float: right;
+
+      .sign_in {
+        border-right: 1px solid white;
+      }
+
+      .sign_in, .sign_up {
+        padding: 0 15px;
+      }
+
+      .button_text {
+        margin: 0;
+      }
     }
 
     .logo {
@@ -161,8 +173,8 @@ p {
     width: 75%;
     height: 100%;
 
-    #sessions {
-      width: 30%;
+    #sessions, #registrations {
+      width: 40%;
     }
 
     .error {
