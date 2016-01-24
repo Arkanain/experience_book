@@ -28,6 +28,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+# Secret token
+gem 'figaro'
+
 gem 'multi_json'
 
 gem 'quiet_assets', group: :development
