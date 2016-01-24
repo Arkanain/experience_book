@@ -4,12 +4,5 @@ class ApplicationController < ActionController::Base
 
   # For ActionController::Base
   protect_from_forgery with: :exception
-  before_action :get_articles
   before_action :authenticate_user!
-
-  private
-
-  def get_articles
-    @articles = Article.all.select(:id, :title)
-  end
 end
