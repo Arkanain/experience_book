@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require tinymce
 //= require users
+//= require articles
 //= require_tree .
 
 $(function(){
