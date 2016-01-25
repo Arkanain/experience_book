@@ -107,7 +107,7 @@ p {
   }
 
   #main_menu {
-    display: block;
+    display: inline-block;
     float: left;
     width: 25%;
     border-right: 2px solid #e4e4e4;
@@ -167,7 +167,7 @@ p {
   }
 
   #container {
-    display: block;
+    display: inline-block;
     float: left;
     padding: 0 50px;
     width: 75%;
