@@ -44,7 +44,7 @@ class ArticlesController < BaseController
       format.js do
         @article.destroy
 
-        @articles = current_user.articles.select(:id, :title)
+        get_articles
 
         render layout: false
       end

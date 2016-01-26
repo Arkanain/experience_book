@@ -9,6 +9,6 @@ class BaseController < ApplicationController
   end
 
   def get_articles
-    @articles = current_user.articles.select(:id, :title)
+    @articles = current_user.articles.select(:id, :title).order(:title)
   end
 end
