@@ -10,7 +10,7 @@
 
   .form_field
     = f.label :text
-    = f.text_area :text, rows: 15, class: 'tinymce'
+    = f.text_area :text, rows: 20, class: 'tinymce'
     = tinymce
 
   = f.hidden_field :user_id, value: current_user.id

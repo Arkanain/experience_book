@@ -1,7 +1,0 @@
-menubar: false
-
-plugins:
-  - textcolor
-
-toolbar:
-  - undo redo | forecolor backcolor | sizeselect | bold italic | fontselect | fontsizeselect
