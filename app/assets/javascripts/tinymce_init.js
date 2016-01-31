@@ -18,14 +18,15 @@ $(function () {
           var selection = ed.selection;
           var elem_parent = selection.getSelectedBlocks()[0];
 
-          if(selection.getSel().anchorOffset == 0 && elem_parent) {
-            // When we have indent, when user press backspace, remove indent first before go to prev line
+          // If we are at the start of the string
+          if(selection.getSel().anchorOffset == 0) {
+            // If we have indent in current row remove it first before go to prev row
             if ($(elem_parent).css('padding-left') != '0px') {
               ed.execCommand('outdent');
               event.preventDefault();
               return false;
             }
-            // Don't break indent of prev line when we concat it with current
+            // If prev line has indent set it to current line and then concat current and prev row
             else {
               $(elem_parent).css('padding-left', $(elem_parent).prev().css('padding-left'));
             }

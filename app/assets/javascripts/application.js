@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require tinymce
+//= require tinymce_init
 //= require users
 //= require articles
 //= require_tree .
