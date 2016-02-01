@@ -12,7 +12,7 @@ class ArticlesController < BaseController
     @article = Article.new(params[:article].merge(user_id: current_user.id))
 
     if @article.save
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ArticlesController < BaseController
     @article.update_attributes(params[:article])
 
     if @article.valid?
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       render :edit
     end
