@@ -5,14 +5,7 @@
 
 = form_for @article do |f|
   .form_field
-    = f.label :title
-    = f.text_field :title
+    = f.text_field :title, placeholder: 'Article Title...'
 
   .form_field
-    = f.label :text
-    = f.text_area :text, rows: 20, class: 'tinymce'
-
-  = f.hidden_field :user_id, value: current_user.id
-
-  .form_field
-    = f.submit class: 'button success'
+    = f.text_area :text, class: 'tinymce'

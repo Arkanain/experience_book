@@ -1,18 +1,16 @@
 $(function() {
-  function changeHeight(height) {
-    setTimeout(function() {
-      var article_height = $('#articles').height();
+  setTimeout(function() {
+    // In new/edit page
+    if($('#articles iframe')[0]) {
+      $('#articles iframe').height($('#content').height() - 110);
+    }
+    // In show page
+    else {
+      var article_height = $('#articles').height() + 20;
 
-      if(height == article_height) {
-        if($('#content').height() < article_height) {
-          $('#content').height(article_height + 20);
-        }
+      if($('#content').height() < article_height) {
+        $('#content').height();
       }
-      else {
-        changeHeight(article_height);
-      }
-    }, 250);
-  }
-
-  changeHeight($('#articles').height());
+    }
+  }, 500);
 });

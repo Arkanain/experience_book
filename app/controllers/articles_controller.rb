@@ -9,7 +9,7 @@ class ArticlesController < BaseController
   end
 
   def create
-    @article = Article.new(params[:article])
+    @article = Article.new(params[:article].merge(user_id: current_user.id))
 
     if @article.save
       redirect_to articles_path
