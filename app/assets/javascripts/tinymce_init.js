@@ -1,10 +1,16 @@
 $(function () {
   tinyMCE.init({
     selector: "textarea.tinymce",
+    content_css : '/assets/tinymce_custom.css',
     menubar: false,
     statusbar: false,
     plugins: ["textcolor", "paste", "save"],
-    toolbar: "save | undo redo | forecolor backcolor | sizeselect | bold italic | fontselect | fontsizeselect",
+    toolbar: "save | undo redo | forecolor backcolor | sizeselect | bold italic underline | fontselect | fontsizeselect",
+    formats: {
+      bold: { inline: 'span', 'classes': 'bold' },
+      italic: { inline: 'span', 'classes': 'italic' },
+      underline: { inline: 'span', 'classes': 'underline', exact: true }
+    },
     invalid_elements : 'pre, strong',
     valid_children : '-p[strong|pre]',
     paste_postprocess: function(plugin, args) {
