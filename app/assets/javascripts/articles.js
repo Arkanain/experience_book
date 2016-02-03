@@ -9,7 +9,7 @@ $(function() {
       var article_height = $('#articles').height() + 20;
 
       if($('#content').height() < article_height) {
-        $('#content').height();
+        $('#content').height(article_height);
       }
     }
   }, 1000);
