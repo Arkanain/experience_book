@@ -5,7 +5,8 @@ $(function () {
     statusbar: false,
     plugins: ["textcolor", "paste", "save"],
     toolbar: "save | undo redo | forecolor backcolor | sizeselect | bold italic | fontselect | fontsizeselect",
-    invalid_elements : 'pre',
+    invalid_elements : 'pre, strong',
+    valid_children : '-p[strong|pre]',
     paste_postprocess: function(plugin, args) {
       // Change pasted text font-style and font-family to default editor settings
       $(args.node).find('span').each(function(index, element) {
@@ -29,10 +30,72 @@ $(function () {
         }
 
         // For tab(increased padding-left) and shift + tab(decreased padding-left)
-        if(event.keyCode == 9) {
+        if (event.keyCode == 9) {
           element.css('padding-left', padding_left + (event.shiftKey ? -30 : 30));
           event.preventDefault();
           return false;
+        }
+
+        if (event.metaKey && event.keyCode == 37) {
+          var range = ed.selection.getRng();
+          var first_node = element.siblings(':first')[0];
+          var next_node = element.next()[0];
+
+          // cmd + shift + arrow left
+          if (event.shiftKey) {
+            if (first_node == next_node) {
+              range.setEnd(range.startContainer, range.startOffset);
+              range.setStart(range.startContainer, 0);
+            }
+            else {
+              range.setStart(first_node, 0);
+            }
+
+            event.preventDefault();
+            return false;
+          }
+          // cmd + arrow left
+          else {
+            var container = first_node == next_node ? range.startContainer : first_node;
+
+            range.setStart(container, 0);
+            range.setEnd(container, 0);
+
+            event.preventDefault();
+            return false;
+          }
+        }
+
+        if (event.metaKey && event.keyCode == 39) {
+          var range = ed.selection.getRng();
+          var last_node = element.siblings(':last')[0];
+          var prev_node = element.prev()[0];
+
+          if(event.shiftKey) {
+            if (last_node == prev_node) {
+              range.setStart(range.startContainer, range.startOffset);
+              range.setEnd(range.startContainer, ed.selection.getStart().textContent.length);
+            }
+            else {
+              range.setEnd(last_node, 1);
+            }
+
+            event.preventDefault();
+            return false;
+          }
+          else {
+            if (last_node == prev_node) {
+              range.setStart(range.startContainer, range.startContainer.length);
+              range.setEnd(range.startContainer, range.startContainer.length);
+            }
+            else {
+              range.setStart(last_node, last_node.textContent.length);
+              range.setEnd(last_node, last_node.textContent.length);
+            }
+
+            event.preventDefault();
+            return false;
+          }
         }
       });
     }
