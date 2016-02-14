@@ -4,7 +4,6 @@ $(function () {
     content_css : '/assets/tinymce_custom.css',
     menubar: false,
     statusbar: false,
-    save_enablewhendirty: false,
     plugins: ["textcolor", "paste", "save"],
     toolbar: "save | undo redo | forecolor backcolor | sizeselect | bold italic underline | fontselect | fontsizeselect",
     formats: {
@@ -22,9 +21,16 @@ $(function () {
       });
     },
     save_onsavecallback: function() {
-      $('form').submit();
+      if(!this.theme.panel.find('toolbar *')[1].disabled()) {
+        $('form').submit();
+      }
     },
     setup: function (ed) {
+      ed.on('NodeChange', function(event) {
+        changeSaveButton($('#article_title')[0]);
+        event.preventDefault();
+        return false;
+      });
       ed.on('keydown', function (event) {
         var element = $(ed.selection.getStart());
         var padding_left = parseInt(element.css('padding-left'), 10);
@@ -33,27 +39,27 @@ $(function () {
         element.removeAttr('data-mce-style');
 
         // For backspace on indent field to prevent format troubles
-        if (event.keyCode == 8 && padding_left > 0) {
+        if(event.keyCode == 8 && padding_left > 0) {
           element.css('padding-left', padding_left - 30);
           event.preventDefault();
           return false;
         }
 
         // For tab(increased padding-left) and shift + tab(decreased padding-left)
-        if (event.keyCode == 9) {
+        if(event.keyCode == 9) {
           element.css('padding-left', padding_left + (event.shiftKey ? -30 : 30));
           event.preventDefault();
           return false;
         }
 
-        if (event.metaKey && event.keyCode == 37) {
+        if(event.metaKey && event.keyCode == 37) {
           var range = ed.selection.getRng();
           var first_node = element.siblings(':first')[0];
           var next_node = element.next()[0];
 
           // cmd + shift + arrow left
-          if (event.shiftKey) {
-            if (first_node == next_node) {
+          if(event.shiftKey) {
+            if(first_node == next_node) {
               range.setEnd(range.startContainer, range.startOffset);
               range.setStart(range.startContainer, 0);
             }
@@ -76,13 +82,14 @@ $(function () {
           }
         }
 
-        if (event.metaKey && event.keyCode == 39) {
+        if(event.metaKey && event.keyCode == 39) {
           var range = ed.selection.getRng();
           var last_node = element.siblings(':last')[0];
           var prev_node = element.prev()[0];
 
+          // cmd + shift + right arrow
           if(event.shiftKey) {
-            if (last_node == prev_node) {
+            if(last_node == prev_node) {
               range.setStart(range.startContainer, range.startOffset);
               range.setEnd(range.startContainer, ed.selection.getStart().textContent.length);
             }
@@ -93,8 +100,9 @@ $(function () {
             event.preventDefault();
             return false;
           }
+          // cmd + right arrow
           else {
-            if (last_node == prev_node) {
+            if(last_node == prev_node) {
               range.setStart(range.startContainer, range.startContainer.length);
               range.setEnd(range.startContainer, range.startContainer.length);
             }

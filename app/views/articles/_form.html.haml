@@ -12,5 +12,5 @@
 
 :javascript
   $('#article_title').keyup(function(event) {
-    tinyMCE.activeEditor.theme.panel.find('toolbar *')[1].disabled(event.target.value.trim() == '');
+    changeSaveButton(event.target);
   });

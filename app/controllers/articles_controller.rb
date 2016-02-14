@@ -9,12 +9,13 @@ class ArticlesController < BaseController
   end
 
   def create
-    @article = Article.new(params[:article].merge(user_id: current_user.id))
+    @article = Article.create(params[:article].merge(user_id: current_user.id))
 
-    if @article.save
-      redirect_to article_path(@article)
-    else
-      render :new
+    respond_to do |format|
+      format.js do
+        get_articles
+        render :changed, layout: false
+      end
     end
   end
 
@@ -30,7 +31,12 @@ class ArticlesController < BaseController
     @article = Article.find(params[:id])
     @article.update_attributes(params[:article])
 
-    render nothing: true
+    respond_to do |format|
+      format.js do
+        get_articles
+        render :changed, layout: false
+      end
+    end
   end
 
   def destroy
@@ -41,7 +47,6 @@ class ArticlesController < BaseController
         @article.destroy
 
         get_articles
-
         render layout: false
       end
     end
