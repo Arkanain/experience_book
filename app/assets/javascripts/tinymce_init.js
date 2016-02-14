@@ -4,6 +4,7 @@ $(function () {
     content_css : '/assets/tinymce_custom.css',
     menubar: false,
     statusbar: false,
+    save_enablewhendirty: false,
     plugins: ["textcolor", "paste", "save"],
     toolbar: "save | undo redo | forecolor backcolor | sizeselect | bold italic underline | fontselect | fontsizeselect",
     formats: {
@@ -19,6 +20,9 @@ $(function () {
         element.style['font-size'] = '16px';
         element.style['font-family'] = 'Arial';
       });
+    },
+    save_onsavecallback: function() {
+      $('form').submit();
     },
     setup: function (ed) {
       ed.on('keydown', function (event) {

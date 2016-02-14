@@ -30,11 +30,7 @@ class ArticlesController < BaseController
     @article = Article.find(params[:id])
     @article.update_attributes(params[:article])
 
-    if @article.valid?
-      redirect_to article_path(@article)
-    else
-      render :edit
-    end
+    render nothing: true
   end
 
   def destroy
