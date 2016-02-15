@@ -1,9 +1,9 @@
 $(function() {
   setTimeout(function() {
-    changeSaveButton($('#article_title')[0]);
-
     // In new/edit page
     if($('#articles iframe')[0]) {
+      changeSaveButton($('#article_title')[0]);
+
       $('#articles iframe').height($('#content').height() - 110);
     }
     // In show page
