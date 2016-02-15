@@ -1,3 +1,7 @@
 :plain
-  $('#articles').html("#{j(render template: 'articles/index')}");
-  $('#main_menu').html("#{j(render partial: 'layouts/main_menu')}");
+  if(window.location.pathname.includes("/articles/#{@article.id}")) {
+    location.href = '/articles'
+  }
+  else {
+    $('#main_menu').html("#{j(render partial: 'layouts/main_menu')}");
+  }
