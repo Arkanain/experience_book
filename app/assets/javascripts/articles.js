@@ -18,5 +18,13 @@ $(function() {
 
   window.changeSaveButton = function(selector) {
     tinyMCE.activeEditor.theme.panel.find('toolbar *')[1].disabled(selector.value.trim() == '');
-  }
+  };
+
+  window.removeMenu = function() {
+    return window.innerWidth <= 1100;
+  };
+
+  window.removeUserMenu = function() {
+    return window.innerWidth <= 600;
+  };
 });

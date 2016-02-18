@@ -1,7 +1,27 @@
-.logo
+.logo.col-xs-10.col-sm-7.col-md-9
   %span.normal Experience book
 
-.sign_out
+.mobile_sign_out.col-xs-2.visible-xs
+  .btn-group
+    %div.btn.dropdown-toggle{ type: "button", data: { toggle: 'dropdown' } }
+      %i.fa.fa-cog.white
+
+    %ul.dropdown-menu.pull-right{ role: "menu" }
+      - if user_signed_in?
+        %li
+          %span
+            = current_user.email
+        %li.divider
+
+        %li
+          = link_to action_button('Sign out', 'fa-sign-out'), destroy_user_session_path, method: :delete
+      - else
+        %li
+          = link_to action_button('Sign in', 'fa-sign-in'), new_user_session_path, class: 'sign_in'
+        %li
+          = link_to action_button('Sign up', 'fa-user-plus'), new_user_registration_path, class: 'sign_up'
+
+.sign_out.col-sm-5.col-md-3.hidden-xs
   - if user_signed_in?
     %span
       = current_user.email

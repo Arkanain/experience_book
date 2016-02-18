@@ -17,11 +17,11 @@ gem 'devise'
 gem 'protected_attributes'
 
 # UI
-gem 'foundation-rails', '~> 5.5.0'
 gem 'sass-rails', '~> 5.0.3'
 gem 'font-awesome-rails'
 gem 'tinymce-rails', '4.0.19'
 gem 'haml'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Utils
 gem 'uglifier', '>= 1.3.0'

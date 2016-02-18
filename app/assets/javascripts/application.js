@@ -12,15 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require tinymce
 //= require tinymce_init
 //= require users
 //= require articles
 //= require_tree .
-
-$(function(){
-    $(document).foundation();
-});
-

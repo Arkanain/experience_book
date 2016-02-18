@@ -28,7 +28,13 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (6.3.3)
+      execjs
+      json
     bcrypt (3.1.10)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -55,9 +61,6 @@ GEM
       thor (~> 0.14)
     font-awesome-rails (4.5.0.0)
       railties (>= 3.2, < 5.0)
-    foundation-rails (5.5.3.2)
-      railties (>= 3.1.0)
-      sass (>= 3.3.0, < 3.5)
     haml (4.0.7)
       tilt
     i18n (0.7.0)
@@ -148,11 +151,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3.6)
   debase
   devise
   figaro
   font-awesome-rails
-  foundation-rails (~> 5.5.0)
   haml
   jquery-rails
   multi_json
