@@ -5,6 +5,11 @@ html {
       align-items: center;
     }
 
+    .row-top {
+      display: flex;
+      align-items: flex-start;
+    }
+
     .white {
       color: white;
     }
@@ -50,6 +55,18 @@ html {
         [class*="col-"] {
           padding-left: 10px !important;
           padding-right: 0 !important;
+        }
+
+        #articles {
+          .edit_button {
+            i {
+              margin: 0;
+            }
+
+            .button_text {
+              display: none;
+            }
+          }
         }
       }
     }

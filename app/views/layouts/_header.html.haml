@@ -1,4 +1,4 @@
-.logo.col-xs-12.col-sm-7.col-md-9
+.logo.col-xs-12.col-sm-7.col-md-8.col-lg-9
   %span.normal Experience book
 
 .mobile_sign_out.col-xs-2.visible-xs
@@ -21,7 +21,7 @@
         %li
           = link_to action_button('Sign up', 'fa-user-plus'), new_user_registration_path, class: 'sign_up'
 
-.sign_out.col-sm-5.col-md-3.hidden-xs
+.sign_out.col-sm-5.col-md-4.col-lg-3.hidden-xs
   - if user_signed_in?
     %span
       = current_user.email
