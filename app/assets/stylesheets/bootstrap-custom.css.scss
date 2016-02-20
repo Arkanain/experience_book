@@ -21,50 +21,54 @@ html {
 
   // xs
   @media(max-width: 767px) {
-    #content_wrapper {
-      [class*="col-"] {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-      }
+    #content {
+      overflow-y: scroll;
 
-      #container[class*="col-"] {
-        padding-left: 20px !important;
-        padding-right: 0 !important;
-      }
-
-      hr {
-        margin: 10px 0;
-      }
-
-      #menu_helper {
-
-      }
-
-      #main_menu {
-        position: absolute;
-        background-color: white;
-        margin-left: calc(-66% - 15px);
-      }
-
-      #container {
-        h3 {
-          font-size: 18px;
-          margin: 0;
-        }
-
+      #content_wrapper {
         [class*="col-"] {
           padding-left: 10px !important;
+          padding-right: 10px !important;
+        }
+
+        #container[class*="col-"] {
+          padding-left: 20px !important;
           padding-right: 0 !important;
         }
 
-        #articles {
-          .edit_button {
-            i {
-              margin: 0;
-            }
+        hr {
+          margin: 10px 0;
+        }
 
-            .button_text {
-              display: none;
+        #menu_helper {
+
+        }
+
+        #main_menu {
+          position: absolute;
+          background-color: white;
+          margin-left: calc(-66% - 15px);
+        }
+
+        #container {
+          h3 {
+            font-size: 18px;
+            margin: 0;
+          }
+
+          [class*="col-"] {
+            padding-left: 10px !important;
+            padding-right: 0 !important;
+          }
+
+          #articles {
+            .edit_button {
+              i {
+                margin: 0;
+              }
+
+              .button_text {
+                display: none;
+              }
             }
           }
         }
