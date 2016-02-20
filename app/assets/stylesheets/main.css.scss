@@ -110,24 +110,6 @@ html {
         margin-bottom: 16px;
       }
 
-      #menu_helper {
-        margin-left: -18px;
-        margin-top: 10px;
-        padding: 0 !important;
-        position: absolute;
-        z-index: 2;
-
-        a {
-          padding: 10px 5px 10px 7px;
-          color: #858585;
-
-          i {
-            margin: 0;
-            font-size: 20px;
-          }
-        }
-      }
-
       #menu_helper.toggled {
         margin-left: calc(66% - 18px);
       }
