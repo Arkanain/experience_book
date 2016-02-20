@@ -26,6 +26,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Utils
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks'
 
 # Secret token

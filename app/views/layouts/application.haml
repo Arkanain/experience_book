@@ -12,12 +12,16 @@
 
   %body{'data-no-turbolink' => ''}
     #header.container-fluid
-      #wrapper.row.row-center
+      .header_wrapper.row.row-center
         = render 'layouts/header'
     #content.container-fluid
-      - if current_user
-        #main_menu
-          = render 'layouts/main_menu'
-      #container
-        %div{id: "#{controller_name}"}
-          = yield
+      #content_wrapper.row
+        - if current_user
+          #menu_helper.col-xs-2.visible-xs
+            %a.btn.btn-default.btn-sm
+              %i.fa.fa-bars
+          #main_menu.col-xs-8.col-sm-4.col-md-3
+            = render 'layouts/main_menu'
+        #container.col-xs-12.col-sm-8.col-md-9
+          %div{id: "#{controller_name}"}
+            = yield

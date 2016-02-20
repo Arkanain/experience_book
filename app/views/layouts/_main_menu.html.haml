@@ -1,10 +1,10 @@
-.add_article
-  = link_to action_button('Add Article', 'fa-plus'), new_article_path, class: 'btn btn-default'
+.add_article.row
+  = link_to action_button('Add Article', 'fa-plus'), new_article_path, class: 'btn btn-default col-xs-offset-2 col-xs-8 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'
 
-%hr
+%hr.row
 
-%ul
+%ul.row
   - @articles.each do |article|
-    %li
-      = link_to article.title, article_path(article)
-      = link_to content_tag(:i, '', class: "fa fa-trash-o"), article_path(article), class: 'delete_article', data: { method: :delete, confirm: 'Are you sure?', remote: true }
+    %li.row.row-center
+      = link_to article.title, article_path(article), class: 'article_link col-xs-10 col-sm-10'
+      = link_to content_tag(:i, '', class: "fa fa-trash-o"), article_path(article), class: 'delete_article col-xs-2 col-sm-1 col-sm-offset-1', data: { method: :delete, confirm: 'Are you sure?', remote: true }
