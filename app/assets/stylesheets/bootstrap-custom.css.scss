@@ -20,7 +20,18 @@ html {
         align-items: flex-start;
       }
 
+      #header {
+        border-width: 0 0 1px;
+        top: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        z-index: 2;
+      }
+
       #content {
+        margin-top: 70px !important;
+
         #content_wrapper {
           [class*="col-"] {
             padding-left: 10px !important;
@@ -40,7 +51,7 @@ html {
             margin-left: -18px;
             margin-top: 10px;
             padding: 0 !important;
-            position: absolute;
+            position: fixed;
             z-index: 2;
 
             a {
@@ -57,9 +68,7 @@ html {
           #main_menu {
             background-color: white;
             margin-left: calc(-66% - 15px);
-            position: absolute;
-            height: auto;
-            padding-bottom: 5px;
+            position: fixed;
           }
 
           #container {
