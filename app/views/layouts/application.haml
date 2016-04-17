@@ -1,16 +1,16 @@
 !!!
 %html
   %head
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta(content="width=device-width, initial-scale=1.0" name="viewport")
 
     %title
       Experience book
 
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false
-    = javascript_include_tag 'application', 'data-turbolinks-track' => false
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  %body{'data-no-turbolink' => ''}
+  %body
     #header.container-fluid
       .header_wrapper.row.row-center
         = render 'layouts/header'
@@ -22,6 +22,10 @@
               %i.fa.fa-bars
           #main_menu.col-xs-8.col-sm-4.col-md-3
             = render 'layouts/main_menu'
-        #container.col-xs-12.col-sm-8.col-md-9
-          %div{id: "#{controller_name}"}
-            = yield
+          #container.col-xs-12.col-sm-8.col-md-9
+            %div(id="#{controller_name}")
+              = yield
+        - else
+          #container.col-xs-12.col-sm-12.col-md-12
+            %div(id="#{controller_name}")
+              = yield

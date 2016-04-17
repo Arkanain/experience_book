@@ -4,7 +4,4 @@
 %hr.row
 
 %ul.row
-  - @articles.each do |article|
-    %li.row.row-center
-      = link_to article.title, article_path(article), class: 'article_link col-xs-10 col-sm-10'
-      = link_to content_tag(:i, '', class: "fa fa-trash-o"), article_path(article), class: 'delete_article col-xs-2 col-sm-1 col-sm-offset-1', data: { method: :delete, confirm: 'Are you sure?', remote: true }
+  = render @articles

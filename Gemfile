@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.0'
+ruby '2.3.0'
+gem 'rails', '4.2.6'
 
 # Debug
 gem 'pry'
@@ -12,6 +13,7 @@ gem 'pg'
 
 # Auth
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 # attr_accessible
 gem 'protected_attributes'

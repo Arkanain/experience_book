@@ -1,15 +1,15 @@
 class ArticlesController < BaseController
   skip_before_filter :authenticate_user!
+  load_resource find_by: :id
 
   def index
   end
 
   def new
-    @article = Article.new
   end
 
   def create
-    @article = Article.create(params[:article].merge(user_id: current_user.id))
+    current_user.articles.create(params[:article])
 
     respond_to do |format|
       format.js do
@@ -20,15 +20,12 @@ class ArticlesController < BaseController
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.update_attributes(params[:article])
 
     respond_to do |format|
@@ -40,12 +37,10 @@ class ArticlesController < BaseController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article.destroy
 
     respond_to do |format|
       format.js do
-        @article.destroy
-
         get_articles
         render layout: false
       end

@@ -1,9 +1,10 @@
 .row.row-center.row-top
   %h3.col-xs-10.col-sm-10.col-lg-11
     = @article.title
-  .edit_button.col-xs-2.col-sm-2.col-lg-1
-    = link_to action_button('Edit', 'fa-pencil-square-o'), edit_article_path(@article), class: 'btn btn-default hidden-xs'
-    = link_to action_button('Edit', 'fa-pencil-square-o'), edit_article_path(@article), class: 'btn btn-default btn-xs visible-xs'
+  - if can? :edit, @article
+    .edit_button.col-xs-2.col-sm-2.col-lg-1
+      = link_to action_button('Edit', 'fa-pencil-square-o'), [:edit, @article], class: 'btn btn-default hidden-xs'
+      = link_to action_button('Edit', 'fa-pencil-square-o'), [:edit, @article], class: 'btn btn-default btn-xs visible-xs'
 %hr
 .row
   .article_content

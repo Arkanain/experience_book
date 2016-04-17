@@ -26,6 +26,10 @@ html {
     padding-bottom: 10px;
 
     .header_wrapper {
+      a {
+        outline: 0;
+      }
+
       .mobile_sign_out {
         .btn {
           padding: 0;
@@ -169,7 +173,14 @@ html {
         z-index: 1;
 
         #sessions, #registrations {
-          width: 40%;
+          width: 100%;
+          padding-right: 20px;
+          margin-top: 20px;
+
+          h2 {
+            padding: 0 !important;
+            margin-bottom: 20px;
+          }
         }
 
         .error {

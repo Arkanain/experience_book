@@ -3,18 +3,17 @@ default: &default
   pool: 5
   timeout: 5000
   encoding: unicode
-  host: localhost
   username: postgres
   password: postgres
 
 development:
   <<: *default
-  database: know_development
+  database: exp_book_development
 
 test:
   <<: *default
-  database: know_test
+  database: exp_book_test
 
 production:
   <<: *default
-  database: know_production
+  database: exp_book_production

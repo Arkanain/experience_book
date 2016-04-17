@@ -5,5 +5,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation
 
-  has_many :articles
+  has_many :articles, dependent: :destroy
+
+  enum role: { writer: 0, admin: 1 }
 end

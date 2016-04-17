@@ -3,10 +3,10 @@
 
 .mobile_sign_out.col-xs-2.visible-xs
   .btn-group
-    %div.btn.dropdown-toggle{ type: "button", data: { toggle: 'dropdown' } }
+    %div.btn.dropdown-toggle(type='button' data-toggle='dropdown')
       %i.fa.fa-cogs.white
 
-    %ul.dropdown-menu.pull-right{ role: "menu" }
+    %ul.dropdown-menu.pull-right(role='menu')
       - if user_signed_in?
         %li
           %span
