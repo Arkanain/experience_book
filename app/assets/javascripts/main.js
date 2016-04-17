@@ -1,6 +1,4 @@
-$(function() {
-  $("#menu_helper").click(function() {
-    $("#menu_helper").toggleClass("toggled", 200);
-    $("#main_menu").toggleClass("toggled", 200);
-  });
+$(document).on('click', '#menu_helper', function(event) {
+  $("#menu_helper").toggleClass("toggled", 200);
+  $("#main_menu").toggleClass("toggled", 200);
 });

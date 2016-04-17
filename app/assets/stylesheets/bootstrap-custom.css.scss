@@ -49,10 +49,10 @@ html {
 
           #menu_helper {
             margin-left: -18px;
-            margin-top: 10px;
+            margin-top: 5px;
             padding: 0 !important;
             position: fixed;
-            z-index: 2;
+            z-index: 3;
 
             a {
               padding: 10px 5px 10px 7px;
@@ -67,7 +67,7 @@ html {
 
           #main_menu {
             background-color: white;
-            margin-left: calc(-66% - 15px);
+            margin-left: calc(-100% - 15px);
             position: fixed;
           }
 
