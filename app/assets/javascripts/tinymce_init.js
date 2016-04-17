@@ -119,8 +119,3 @@ $(function () {
     }
   });
 });
-
-//$('iframe').contents().find('p').each(function(i, e) {
-//  $(e).css('padding-left', 0);
-//  $(e).removeAttr('data-mce-style');
-//});
