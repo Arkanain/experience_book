@@ -21,7 +21,6 @@ gem 'protected_attributes'
 # UI
 gem 'sass-rails', '~> 5.0.3'
 gem 'font-awesome-rails'
-gem 'tinymce-rails', '4.0.19'
 gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -31,15 +30,18 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 
-# Secret token
-gem 'figaro'
-
 gem 'multi_json'
 
-gem 'quiet_assets', group: :development
+# Editor
+gem 'jquery-ace-rails'
 
-gem 'rails_12factor', group: :production
+group :development do
+  gem 'quiet_assets'
+end
 
+group :production do
+  gem 'rails_12factor'
+end
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.0'

@@ -1,6 +1,7 @@
 class ArticlesController < BaseController
   skip_before_filter :authenticate_user!
   load_resource find_by: :id
+  before_action :get_articles, except: [:create, :update, :destroy]
 
   def index
   end
@@ -9,13 +10,10 @@ class ArticlesController < BaseController
   end
 
   def create
-    current_user.articles.create(params[:article])
+    current_user.articles << @article
 
     respond_to do |format|
-      format.js do
-        get_articles
-        render :changed, layout: false
-      end
+      format.js { update_menu }
     end
   end
 
@@ -29,10 +27,7 @@ class ArticlesController < BaseController
     @article.update_attributes(params[:article])
 
     respond_to do |format|
-      format.js do
-        get_articles
-        render :changed, layout: false
-      end
+      format.js { update_menu }
     end
   end
 
@@ -40,10 +35,18 @@ class ArticlesController < BaseController
     @article.destroy
 
     respond_to do |format|
-      format.js do
-        get_articles
-        render layout: false
-      end
+      format.js { update_menu }
     end
+  end
+
+  private
+
+  def update_menu
+    get_articles
+    render :change_menu, layout: false
+  end
+
+  def get_articles
+    @articles = current_user.articles.select(:id, :title).order(:title)
   end
 end

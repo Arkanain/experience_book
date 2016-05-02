@@ -1,16 +1,21 @@
-- if @article.errors.full_messages.any?
-  - @article.errors.full_messages.each do |error|
-    .error
-      = error
-
-= form_for @article, remote: true, html: { role: 'form', class: 'col-xs-12' } do |f|
+= form_for @article, remote: true, html: { role: 'form', class: 'form-horizontal' } do |f|
   .form-group
-    = f.text_field :title, placeholder: 'Article Title...', class: 'form-control'
+    #title_section.row
+      .col-md-10
+        = f.text_field :title, placeholder: 'Article Title...', class: 'form-control'
+      .col-md-2.text-right
+        = f.submit class: 'btn btn-primary'
 
   .form-group
-    = f.text_area :text, class: 'tinymce form-control'
+    .col-md-12
+      #text_section.col-md-12
+        = f.text_area :text, class: 'form-control'
 
 :javascript
-  $('#article_title').keyup(function(event) {
-    changeSaveButton(event.target);
+  $(document).on('ready', function() {
+    form_redactor();
+  });
+
+  $(document).on('page:load', function() {
+    form_redactor();
   });

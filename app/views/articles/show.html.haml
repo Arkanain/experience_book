@@ -1,11 +1,23 @@
 .row.row-center.row-top
   %h3.col-xs-10.col-sm-10.col-lg-11
     = @article.title
+
   - if can? :edit, @article
     .edit_button.col-xs-2.col-sm-2.col-lg-1
       = link_to action_button('Edit', 'fa-pencil-square-o'), [:edit, @article], class: 'btn btn-default hidden-xs'
       = link_to action_button('Edit', 'fa-pencil-square-o'), [:edit, @article], class: 'btn btn-default btn-xs visible-xs'
 %hr
 .row
-  .article_content
-    = @article.text.html_safe
+  = form_for @article do |f|
+    .form-group
+      #article_content.col-md-12
+        = f.text_area :text, class: 'form-control'
+
+:javascript
+  $(document).on('ready', function() {
+    content_viewer();
+  });
+
+  $(document).on('page:load', function() {
+    content_viewer();
+  });
