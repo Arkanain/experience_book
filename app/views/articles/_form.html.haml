@@ -1,14 +1,14 @@
 = form_for @article, remote: true, html: { role: 'form', class: 'form-horizontal' } do |f|
   .form-group
     #title_section.row
-      .col-md-10
+      .form-title.col-md-12.col-sm-12.col-xs-12
         = f.text_field :title, placeholder: 'Article Title...', class: 'form-control'
-      .col-md-2.text-right
+      .form-button
         = f.submit class: 'btn btn-primary'
 
   .form-group
-    .col-md-12
-      #text_section.col-md-12
+    .col-md-12.col-sm-12.col-xs-12
+      #text_section.col-md-12.col-sm-12.col-xs-12
         = f.text_area :text, class: 'form-control'
 
 :javascript
