@@ -1,5 +1,6 @@
 .logo.col-xs-12.col-sm-7.col-md-8.col-lg-9
-  %span.normal Experience book
+  %span.normal
+    Experience book
 
 .mobile_sign_out.col-xs-2.visible-xs
   .btn-group
@@ -12,7 +13,6 @@
           %span
             = current_user.email
         %li.divider
-
         %li
           = link_to action_button('Sign out', 'fa-sign-out'), destroy_user_session_path, method: :delete
       - else

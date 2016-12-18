@@ -31,12 +31,12 @@ class UsersController < BaseController
   def destroy
     @user.destroy
 
-    respond_to do |format|
-      format.js do
+    respond_to { |format|
+      format.js {
         @users = User.all
 
         render layout: false
-      end
-    end
+      }
+    }
   end
 end
